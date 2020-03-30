@@ -62,4 +62,4 @@ for i in list_dict[:5]:  # в цикле выводим первые пять н
 # выводим количество разных слов в списке через Set
 
 set_from_list_dict = (list_dict)
-print(set_from_list_dict)
+print(len(set_from_list_dict))  # 401
