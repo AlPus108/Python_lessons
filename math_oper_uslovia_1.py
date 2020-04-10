@@ -42,32 +42,32 @@
 # -----------------------------------------------
 # Функция для проверки ввода, что это действительно число
 
-def is_digit(string):
-    if string.isdigit():
-        return True
-    else:
-        try:
-            float(string)
-            return True
-        except ValueError:
-            return False
-
-
-temp_float = input('Введите число тепа float')
-# В Питоне разделителем числа является '.' (точка)
-print(temp_float, type(temp_float), id(temp_float))
-
-if is_digit(temp_float):
-    temp_float = float(temp_float)
-    print('После приведения к типу float ')
-    print(temp_float, type(temp_float), id(temp_float))
-else:
-    print('Это не число типа float!')
+# def is_digit(string):
+#     if string.isdigit():
+#         return True
+#     else:
+#         try:
+#             float(string)
+#             return True
+#         except ValueError:
+#             return False
+#
+#
+# temp_float = input('Введите число типа float')
+# # В Питоне разделителем числа является '.' (точка)
+# print(temp_float, type(temp_float), id(temp_float))
+#
+# if is_digit(temp_float):
+#     temp_float = float(temp_float)
+#     print('После приведения к типу float ')
+#     print(temp_float, type(temp_float), id(temp_float))
+# else:
+#     print('Это не число типа float!')
 
 # # Переменные и их типы
 
-# # Описание машины
-# # Марка
+# Описание машины
+# Марка
 # name = 'Ford'
 # # Чтобы узнаять тип переменной, нужно использовать функцию type()
 # print() # для переноса строки
@@ -85,7 +85,7 @@ else:
 # print(hatch, type(hatch))  # bool
 #
 # # Ввод с клавиатуры
-# происходит через функцию input(). В нее можно передать параметр или строку приглашения
+# # происходит через функцию input(). В нее можно передать параметр или строку приглашения
 # name = input('Введите ваше имя')
 # print(name, type(name))
 # # Тип переменой, которую возвращаем input, это всегда строка
@@ -93,7 +93,7 @@ else:
 # age = input('Введите ваш возраст')
 # print(age, type(age)) # Здесь тип числа str
 # print(int(age), type(int(age))) # Здесь тип числа str меняем на int с помощью функции приведения типа int()
-#
+
 #
 # # Математические операции math_operations
 #
