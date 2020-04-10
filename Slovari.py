@@ -1,10 +1,12 @@
+import random
+
 # СЛОВАРИ
 # Это структура данных, которая содержит неупорядоченную последовательность.
 # Если в списках элементы упорядочены по индексам, то в Словарях объекты распалагаются в парах: ключ-значение
 # Словари напоминают списки, но есть одно принцимпиальное различие: они состоят из ключей и значений.
 # Ключ, это тот элемент, по котрому мы получаем значение
 
-dictionaty_list = {'name' : 'Ariel'}  # сначала ключ 'name', потом значение 'Ariel' в фигурных скобках
+dictionaty_list = {'name': 'Ariel'}  # сначала ключ 'name', потом значение 'Ariel' в фигурных скобках
 # ключ является не изменяемым объектом, тогда как значение может быть любым объектом.
 # В словаре не может быть одинаковых ключей, тогда как их значения могут повторяться (совпадать).
 # в качестве значения можно использовать объекты любого типа, в том числе списки и сами словари.
@@ -21,7 +23,7 @@ print('Выводим цены на автомобили', car_prices)  # Выв
 # Словари объявляются (инициализируются) фигурными скобками {}
 # dict_temp = {}
 # Заполняем словарь ключ-значение
-dict_temp = {'dict1': 1, 'dict2': 2.1, 'dict3': 'name', 'dict4': [1,2,3]}
+dict_temp = {'dict1': 1, 'dict2': 2.1, 'dict3': 'name', 'dict4': [1, 2, 3]}
 print(type(dict_temp), dict_temp)  # выводим тип словаря и сам словарь
 
 # 2 Способ
@@ -31,19 +33,19 @@ dict_temp = dict.fromkeys(['a', 'b'])  # dict - указание класса
 print(type(dict_temp), dict_temp)  # получаем на выходе  <class 'dict'> {'a': None, 'b': None}
 # для установки значений нужно подать еще один список
 dict_temp = dict.fromkeys(['a', 'b'], [12, '2020'])  # dict - указание класса
-print(type(dict_temp), dict_temp)  # получаем на выходе  <class 'dict'> {'a': [12, '2020'], 'b': [12, '2020']}
+print('C помощью метода fromkeys()', type(dict_temp),
+      dict_temp)  # получаем на выходе  <class 'dict'> {'a': [12, '2020'], 'b': [12, '2020']}
 
 # 3 Способ
 # Инициализация словаря с помощью генератора
-dict_temp = {a: a**2 for a in range(10)}  # конструкция такая же, как и в списках.
+dict_temp = {a: a ** 2 for a in range(10)}  # конструкция такая же, как и в списках.
 # a - ключ, a**2 - значение, далее конструкция цикла
 print('Инициализация с помощью генератора', type(dict_temp), dict_temp)
 # получаем на выходе  <class 'dict'> {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
 
 # 4 Способ (редко используется, так как все ключи-значения надо вносить вручную)
-dict_temp = dict(brend = 'volvo', price = 5000)
+dict_temp = dict(brend='volvo', price=5000)
 print(type(dict_temp), dict_temp)  # получаем на выходе  <class 'dict'> {'brend': 'volvo', 'price': 5000}
-
 
 # ----------------------- Обращение к содержимому словаря --------------------------
 
@@ -123,7 +125,6 @@ print(temp)  # Вывод на экран: Alex
 car_prices.clear()
 print('Очищаем словарь car_prices ', car_prices)  # Вывод: {}
 
-
 # ------------------------- Многоструктурность словарей -----------------------------
 
 # Словари могут содержать не просто парв Ключ - Значение, но и более сложные структуры,
@@ -170,6 +171,28 @@ print('Выводим на экран весь Многоструктурный 
 # Вывод: {'first name': 'Jack', 'second name': 'Brown', 'age': 23, 'hobbies': ['footbal', 'singing', 'photo'],
 # 'children': {'son': 'Alex', 'daugter': 'Marry'}, 'car': 'Mazda'}
 # в конце добавлена информация о машине.
+
+# Добавляем данные через цикл
+
+lst_name = ['Marry', 'Alex', 'Kate', 'Jack', 'Anna', 'Kate', 'Ronald', 'Maria', 'Tatyana', 'Evgeniy',
+            'Alex', 'Maria', 'Svetlana', 'Artem', 'Igor', 'Ilya']
+
+names_dict = {}
+for i in range(len(lst_name)):
+    names_dict[lst_name[i]] = lst_name.count(lst_name[i])
+# "Marry" 	    1
+# "Alex"	    2
+# "Kate"	    2
+# "Jack"	    1
+# "Anna"	    1
+# "Ronald"	    1
+# "Maria" 	    2
+# "Tatyana"	    1
+# "Evgeniy"	    1
+# "Svetlana"	1
+# "Artem" 	    1
+# "Igor"	    1
+# "Ilya"	    1
 
 # Изменение данных в Многоструктурном Словаре
 
@@ -238,7 +261,78 @@ for key in dict_temp.keys():
 for value in dict_temp.values():
     print(value)
 
-
 # Операции со значениями
 for value in dict_temp.values():
     print(value + 10, end=' ')  # 110 11 12 13 14 15 16 17 18 19
+
+# ---------------------------- Решение задачь с помощью Словарей ------------------------------
+
+
+# Напишите функцию (F): на вход список имен и целое число N;
+# # на выходе список длины N случайных имен из первого списка (могут повторяться,
+# # можно взять значения: количество имен 20, N = 100,
+# # рекомендуется использовать функцию random);
+
+lst_name = ['Nancy', 'Alice', 'Mary', 'Hanna', 'Dolores', 'Brian', 'Stanley', 'Andrew', 'Michael', 'Nickolas',
+            'Johnathan', 'Angeline']
+N = 100
+
+
+def f(lst, n):
+    rand_list = []  # пустой список для вывода результата
+    for i in range(n):  # запускаем цикл на n итераций
+        # rand_name = random.choice(lst)  # выбираем случайное имя из списка и присваиваем ее переменной
+        # rand_list.append(rand_name)     # добавляем случайное имя в результирующий список
+        rand_list.append(random.choice(lst))  # объединил две предыдущие строки в одну
+    return rand_list  # возвращаем список с количеством случайных имен n
+
+
+fin_list = f(lst_name, N)  # вызываем ф-ю с передачей в нее параметров
+print(fin_list)  # выводим результат
+
+# Получили результирующий список fin_list, с которомы будем работать дальше
+
+# Напишите функцию вывода самого частого имени из списка на выходе функции F (список fin_list);
+
+
+# Решение с помощью цикла
+names_dict = {}
+for i in range(len(fin_list)):
+    names_dict[fin_list[i]] = fin_list.count(fin_list[i])  # в цикле загоняем значения в словарь
+top_names_list = list(names_dict.items())  # перекидываем инфу из Словаря в Лист
+top_names_list.sort(key=lambda i: i[1], reverse=True)  # сортируем Список по значениям
+# и переворачиваем от большего к меньшим
+print(f'Имя {top_names_list[0][0]} встречается чаще других, а именно {top_names_list[0][1]} раз.')
+
+
+# Решение с помощью функции
+def top(fin_list):
+    # Получаем уникальные значения списка через обертку set
+    # Через обертку Словарь листаем в цикле список и считаем количество повторений каждого слова
+    pop_name = dict((fin_list.count(i), i) for i in set(fin_list))
+    return pop_name[max(pop_name.keys())]
+
+
+print(f'Имя {top(fin_list)} встречается чаще других, а именно {fin_list.count(top(fin_list))} раз.')
+
+
+# 3. Напишите функцию вывода самой редкой буквы, с которого начинаются имена в списке на выходе функции F.
+
+#  Решение с помощью цикла
+letters_dict = {}
+for i in range(len(fin_list)):
+    letters_dict[fin_list[i][0]] = fin_list.count(fin_list[i])
+letters_list = sorted(letters_dict.items(), key=lambda i: i[1])
+# print(letters_list)
+print('Первая буква', letters_list[0][0], 'в именах встречается реже других, а именно', letters_list[0][1], 'раз.')
+
+
+# решение с помощью функции
+letters_list = [fin_list[i][0] for i in range(len(fin_list))]
+# print(letters_list)
+def rare(letters_list):
+    letters_dict = dict((letters_list[i], letters_list.count(letters_list[i])) for i in range(len(letters_list)))
+    letters_dict_sort = sorted(letters_dict.items(), key = lambda i: i[1])
+    return letters_dict_sort[0]
+# print(rare(letters_list))
+print(f'Первая буква {(rare(letters_list))[0]} в именах встречается реже других, а именно {(rare(letters_list))[1]} раз.')
