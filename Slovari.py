@@ -265,6 +265,36 @@ for value in dict_temp.values():
 for value in dict_temp.values():
     print(value + 10, end=' ')  # 110 11 12 13 14 15 16 17 18 19
 
+
+# По нескольким словарям одновременно
+
+jack = {
+    'name': 'jack',
+    'car': 'bmw'
+}
+
+john = {
+    'name': 'john',
+    'car': 'audi'
+}
+
+# Нам надо собрать, например, информацию о машинах.
+# создаем список словарей
+drivers = [jack, john]
+cars = []
+for persons in drivers:
+    cars.append(person['car'])
+print(cars)
+
+# Более короткая запись через list compehension
+
+new_cars = [person['car'] for persons in drivers]
+print(new_cars)
+
+
+
+
+
 # ---------------------------- Решение задачь с помощью Словарей ------------------------------
 
 
