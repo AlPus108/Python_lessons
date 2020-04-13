@@ -56,14 +56,16 @@ print('Top level in first.py')
 
 # Итак, на этом этапе, мы имеем в этом файле first.py определение ф-и и вызов команды print на верхнем уровне
 # этого файла.
+
 # Далее пишем:
 
-if __name__ == '__main__':  # если переменн name имеет значение 'main'
+if __name__ == '__main__':  # если переменная name имеет значение 'main'
     print('first.py is being run directly')   # файл был запущен непосредстенно, на прямую
 else:  # если переменн name не имеет значение 'main'
     print('first.py has been imported')  # тогда этот файл импортирован.
 
 # --> 3 second.py
+
 # 4 Пришли из second
 # Запускаем этот файл first
 
