@@ -18,6 +18,7 @@ else:  # если переменн name не имеет значение 'main'
     print('second.py has been imported')  # тогда этот файл импортирован.
 
 # --> 4 first.py
+
 # 5 Пришли из first.py
 
 # Запускаем этот модуль second.py
