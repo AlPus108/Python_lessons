@@ -30,8 +30,8 @@ print(sum)
 # Найти произведение ряда чисел от 1 до 10. Полученный результат вывыести на экран
 
 x = 1
-for i in range(2, 10):
-    x = int(x * i)
+for i in range(2, 11):
+    x = x * i
 print(x)
 
 
@@ -41,8 +41,8 @@ print(x)
 integer_number = 25678
 
 while integer_number > 0:
-    print(integer_number % 10) # отделяем от числа последнюю цифру и выводим ее на экран
-    integer_number = integer_number // 10 # удаляем у числа последнюю цифру
+    print(integer_number % 10)  # отделяем от числа последнюю цифру и выводим ее на экран
+    integer_number = integer_number // 10  # удаляем у числа последнюю цифру
 
 
 # Задача 6
