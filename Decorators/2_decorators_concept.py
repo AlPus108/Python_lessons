@@ -150,7 +150,7 @@ def greeting(f):
     return wrapp
 
 
-# @greeting  # при отключении этой строки выводится перваначальная функциональность при вызове изначальной ф-и.
+@greeting  # при отключении этой строки выводится перваначальная функциональность при вызове изначальной ф-и.
 def ddl():
     print('Привет!')
 
@@ -177,7 +177,7 @@ def say_name(name):
 # def make_complement(func):
 #     def wrapper():  .....
 # Но, мы передаем def say_name(name): - в скобках
-# Поэтом, все, что нам нужно, это передать этот параметр в ф-ю wrapper
+# Поэтому, все, что нам нужно, это передать этот параметр в ф-ю wrapper
 
 
 def make_complement_1(func):  # в скобках указываем, что в качестве параметра примимаем ф-ю
@@ -221,6 +221,7 @@ def make_complement_2(func):
     return wrapper  # возвращаем оберточную ф-ию без вызова!
 # Теперь мы можем передавать этой ф-и любое количество аргументов
 
+
 @make_complement_2
 def say_name_2(name):
     print(f'Меня зовут {name} с *args')
@@ -252,6 +253,7 @@ def make_order(func):
 @make_order
 def order(food, drink):
     print(f'Я бы хотел {food} и {drink}')
+
 
 # Этот вызов использует *args
 order('Чипсы', 'Колу *args')
