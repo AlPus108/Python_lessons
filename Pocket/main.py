@@ -2,7 +2,7 @@
 
 # В связке с:
 # 1 my_muth_module.py
-# 2 main.py
+# 2 main_exe.py
 # 3 __init__.py
 # 4 Moduli_Pakety
 # 5 math_op
