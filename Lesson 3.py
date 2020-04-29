@@ -44,7 +44,7 @@ for i in range(len(str_4)):
 
 # Варинат 2 (сет)
 lem_set=list(map(lambda x: morph.parse(x)[0].normal_form, str_4))
-print('Лемитизация ', set(lem_set))
+print('Лемматизация ', set(lem_set))
 
 # ----------------------------------------
 
