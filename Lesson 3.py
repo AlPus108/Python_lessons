@@ -1,5 +1,7 @@
+import pymorphy2
 
-s = open("C:/Users/Lenovo 330s/Documents/UII/text.txt",  encoding='utf-8')
+
+s = open("text.txt", 'r', encoding='utf-8')
 str = s.read()
 s.close()
 
@@ -30,10 +32,21 @@ print('Вывод текста тип list\n', str_3)
 str_4 = list(map(lambda x: x.lower(), str_3))
 print('Вывод текста в нижнем регистре (map)\n', str_4)
 
-# # Без map
-# str_5 = str.lower()
-# print('Вывод текста в нижнем регистре (без map)\n', str_5)
+# ------------ Pro -----------------------
 
+# Лемитизация
+# Вариант 1 (построчно парами)
+print('Pro')
+morph = pymorphy2.MorphAnalyzer()
+for i in range(len(str_4)):
+    lem = morph.parse(str_4[i])[0]
+    print(str_4[i], ' - ', lem.normal_form)
+
+# Варинат 2 (сет)
+lem_set=list(map(lambda x: morph.parse(x)[0].normal_form, str_4))
+print('Лемитизация ', set(lem_set))
+
+# ----------------------------------------
 
 # 3.2) получить из list пункта 3 dict, ключами которого являются слова, а значениями их количество появлений в тексте;
 
