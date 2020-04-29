@@ -1,5 +1,6 @@
 # Игра в кости
 
+
 # Атрибуты класса:
 # Компьютор загадывает два числа от 1 до 6, которые присваиваются переменным
 # Количество попыток - переменная
@@ -41,7 +42,7 @@ class Dice:
         dice_1 = random.randint(1, 6)  # первая кость
         dice_2 = random.randint(1, 6)  # вторая кость
         self.current_throw += 1  # считаем количество попыток
-        if self.current_throw > self.throw_num:  # если кол-во попыток превышают установленное значение
+        if self.current_throw > self.throw_num:  # если кол-во попыток превышают установленное значение попыток
             raise Exception('Вы привысили количество попыток')  # выбрасываем исключение
         if {dice_1, dice_2} == {self.__hidden_num_1, self.__hidden_num_2}:
             return True
@@ -50,8 +51,8 @@ class Dice:
 
 
 if __name__ == '__main__':
-    dice_game = Dice(5)  # выставляем количество бросков
-    dice_game.set_hidden_nummbers()
+    dice_game = Dice(5)  # создаем объект "Новый заход" класса Dice и передаем количество бросков
+    dice_game.set_hidden_nummbers()  # применяем к нему метод set_hidden_nummbers()
     # print(dice_game.__hidden_num_1, dice_game.__hidden_num_2)
     # Так как параметры __hidden_num_1, __hidden_num_2 строго инкапсулированны - двойная земля,
     # то при попытке их вывести, будет выдана ошибка, что их не существует.
@@ -62,3 +63,4 @@ if __name__ == '__main__':
             print(dice_game.throw_daces())
         except:
             print('Игра закончена')
+
