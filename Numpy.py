@@ -689,3 +689,53 @@ print(rr)
 
 
 
+# -------------------------- Задачи ----------------
+
+# Создайте массив, который будет содержать списки с именем студента(str), его возрастом(int) и средней оценкой(float).
+# Отсортируйте такой массив
+# Замените значение, отвечающее за возраст, у всех студентов на одно и то же, например, 10. Отсортируйте такой массив теперь.
+
+# dt = [('name', 'S10'), ('age', int), ('mark', float)]
+# # std_list = [('Alex', 20, 4.3), ('Kate', 19, 4.8), ('Maks', 21, 4.1), ('Marry', 22, 4.6), ('Denis', 18, 3.8), ('Ann', 21, 4.2)]
+# print(type(std_list))  # <class 'numpy.ndarray'>
+
+std_list = np.array([('Alex', 20, 4.3),
+                   ('Kate', 19, 4.8),
+                   ('Maks', 21, 4.1),
+                   ('Marry', 22, 4.6),
+                   ('Denis', 18, 3.8),
+                   ('Ann', 21, 4.2)],
+                   dtype=[('name', '<U10'), ('age', 'int32'), ('mark', 'float32')])
+
+# std_list= std_list.reshape(1,6)
+
+print((np.sort(std_list, order='name')))  # сорт по имени (алфавит)
+print()
+print((np.sort(std_list, order='age')))  # сорт по возрасту
+print()
+print((np.sort(std_list, order='mark'))[::-1])  # сорт успеваемости
+#
+# std_list_sort = np.array(std_list, dtype=dt)       # создаем структуру массива
+# print(type(std_list_sort))
+# std_list_sort = std_list_sort.reshape(6,1)
+# print(std_list_sort)
+# print()
+#
+# # Сортируем массив
+# std_list_np_s = np.sort(std_list_sort, order='name')
+# print(std_list_np_s)
+# std_list_np_v = np.sort(std_list_np, axis=0, order=1)
+
+# # ------------------------------------------------------
+# dtype = [('name', 'S10'), ('height', float), ('age', int)]
+# values = [('Arthur', 1.8, 41), ('Lancelot', 1.9, 38), ('Galahad', 1.7, 38)]
+# a = np.array(values, dtype=dtype)       # create a structured array
+# np.sort(a, order='height')
+# array([('Galahad', 1.7, 38), ('Arthur', 1.8, 41),
+#        ('Lancelot', 1.8999999999999999, 38)],
+#       dtype=[('name', '|S10'), ('height', '<f8'), ('age', '<i4')])
+
+# Заменяем возраст на одно число
+std_list['age'] = 10
+print((np.sort(std_list, order='name'))[::-1])  # сорт по алфавиту в обратном порядке
+
